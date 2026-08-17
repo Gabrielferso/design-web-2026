@@ -1,0 +1,17 @@
+$cor-txt: blue;
+$cor-h1: pink;
+$cor-bg: green;
+
+body{
+    color: $cor-texto;
+
+    // body {}
+    // body h1 {}
+    // body h1:hover{}
+    h1{
+        color: $cor-h1;
+        &hover{
+            background-color: $cor-bg;
+        }
+    }
+}
