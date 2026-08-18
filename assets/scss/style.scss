@@ -1,17 +1,299 @@
-$cor-txt: blue;
-$cor-h1: pink;
-$cor-bg: green;
+// =============================================
+//  1. VARIÁVEIS (cores, fontes, breakpoints)
+// importante para configurar todas as variáveis do código no final
+// =============================================
 
-body{
-    color: $cor-texto;
+// Cores
+$color-primary: #2c3e50;       // azul escuro (fundo do avatar, textos)
+$color-secondary: #3498db;     // azul claro (detalhes, botão)
+$color-accent: #e74c3c;        // vermelho (destaque opcional)
+$color-background: #f4f6f9;    // fundo da página
+$color-card-bg: #ffffff;       // fundo do card
+$color-text: #333333;          // texto principal
+$color-text-light: #777777;    // texto secundário
+$color-border: #e0e0e0;        // bordas
 
-    // body {}
-    // body h1 {}
-    // body h1:hover{}
-    h1{
-        color: $cor-h1;
-        &hover{
-            background-color: $cor-bg;
-        }
-    }
+// Tipografia
+// definindo minhas variáveis de código
+$font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-size-base: 16px;
+$font-size-large: 1.5rem;
+$font-size-medium: 1.2rem;
+$font-size-small: 0.9rem;
+
+// Espaçamentos
+// criando os tamanhos principais
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Breakpoints (responsividade)
+// foco na responsividade: se liga.
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+// =============================================
+//  2. MIXINS - pesquisa ai o que é Mixins
+// aqui a mágica começa
+// =============================================
+
+// Mixin para responsividade (mobile-first)
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: #{$breakpoint-mobile}) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (min-width: #{$breakpoint-mobile + 1}) and (max-width: #{$breakpoint-tablet}) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: #{$breakpoint-tablet + 1}) { @content; }
+  }
 }
+
+// Mixin para botão
+@mixin button($bg-color, $text-color, $hover-bg) {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  background-color: $bg-color;
+  color: $text-color;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-bg;
+    transform: scale(1.02);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-secondary;
+    outline-offset: 2px;
+  }
+}
+
+// =============================================
+//  3. ESTILOS GLOBAIS
+// sabe o que é global? dá um google
+// =============================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: $color-background;
+  color: $color-text;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// =============================================
+//  4. MENU SEMÂNTICO
+// precisa ser semântico ou nem comece.
+// =============================================
+
+header {
+  background-color: $color-primary;
+  padding: $spacing-sm $spacing-md;
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+
+    li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      &:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+// =============================================
+//  5. CARD PRINCIPAL
+// =============================================
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-md;
+}
+
+.card {
+  max-width: 800px;
+  width: 100%;
+  background-color: $color-card-bg;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: $spacing-lg;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  gap: $spacing-md $spacing-lg;
+  align-items: start;
+
+  // Avatar
+  &__avatar {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid $color-secondary;
+      display: block;
+    }
+  }
+
+  // Conteúdo principal
+  &__content {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+  }
+
+  h1 {
+    font-size: $font-size-large;
+    color: $color-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__subtitle {
+    font-size: $font-size-medium;
+    color: $color-secondary;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $color-text;
+    margin-bottom: $spacing-md;
+  }
+
+  // Botão
+  &__button {
+    @include button($color-secondary, #ffffff, darken($color-secondary, 10%));
+    i {
+      margin-left: $spacing-xs;
+    }
+  }
+
+  // Tecnologias
+  &__tech {
+    grid-row: 3 / 4;
+    grid-column: 1 / 3;
+    border-top: 2px solid $color-border;
+    padding-top: $spacing-md;
+    margin-top: $spacing-xs;
+  }
+
+  &__tech-title {
+    font-size: $font-size-medium;
+    color: $color-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__tech-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm $spacing-md;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+      background-color: $color-background;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: 20px;
+      font-size: $font-size-small;
+      color: $color-text;
+
+      i {
+        color: $color-secondary;
+      }
+    }
+  }
+
+  // =============================================
+  //  6. RESPONSIVIDADE (usando mixins)
+  // =============================================
+
+  @include respond-to(mobile) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: $spacing-md;
+
+    &__avatar {
+      margin-bottom: $spacing-sm;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    &__content {
+      order: 1;
+    }
+
+    &__tech {
+      width: 100%;
+      border-top: 2px solid $color-border;
+      padding-top: $spacing-md;
+    }
+
+    &__tech-list {
+      justify-content: center;
+    }
+  }
+
+  @include respond-to(tablet) {
+    // Ajustes para tablet (se necessário)
+    gap: $spacing-md;
+    padding: $spacing-md;
+  }
+}
+
+// =============================================
+//  7. RODAPÉ
+// =============================================
+
+footer {
+  background-color: $color-primary;
+  color: #ffffff;
+  text-align: center;
+  padding: $spacing-sm;
+  font-size: $font-size-small;
+  margin-top: auto;
+}
+
+// só para testar a sincronização entre forks

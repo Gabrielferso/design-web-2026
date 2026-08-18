@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{seu nome aqui} - UX e Dev Front-end</title>
+    <!-- CSS compilado do SCSS | colocar o link correto, pois este vai dar erro, viu-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Usando a fonte de icones aqui-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <header role="banner">
+        <nav role="navigation" aria-label="Navegação principal">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section id="sobre" aria-labelledby="titulo-card">
+            <div class="card">
+
+                <!-- Avatar (placeholder) -->
+                <div class="card__avatar">
+                    <img src="https://via.placeholder.com/120x120/2c3e50/ffffff?text=Bruno"
+                        alt="Avatar de Bruno Nakamura, UX e Dev Front-end">
+                </div>
+
+                <!-- Informações -->
+                <div class="card__content">
+                    <h1 id="titulo-card">Bruno Nakamura</h1>
+                    <p class="card__subtitle">UX e Dev Front-end</p>
+
+                    <p class="card__description">
+                        Sou um híbrido raro: Design Systems + Engenharia de Produto.
+                        Entrego de ponta a ponta – da descoberta à produção – com métricas
+                        de negócio na cabeceira e DX/UX no detalhe.<br>
+                        Tradução simultânea entre PMs, Design, Front, Back e Data.
+                        Sem teatrinho: shippo, meço, repito.
+                    </p>
+
+                    <!-- Botão com ícone -->
+                    <a href="#" class="card__button" aria-label="Vamos trabalhar juntos">
+                        Vamos trabalhar juntos <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <!-- Tecnologias (mockup de ícones) -->
+                <div class="card__tech" id="tecnologias">
+                    <h2 class="card__tech-title">Tecnologias que domino</h2>
+                    <ul class="card__tech-list">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> ClickUp</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Dropbox</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> PAYCHEX</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> elastic</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> stripe</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2026 Bruno Nakamura - Exemplo didático para alunos de webdesign</p>
+    </footer>
+</body>
+
+</html>
