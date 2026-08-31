@@ -1,4 +1,4 @@
-# 🎨 Cheatsheet Tailwind CSS v4 – Semana 4
+# Cheatsheet Tailwind CSS v4 – Semana 4
 
 
 ## Como usar
@@ -61,6 +61,7 @@
 ## 4. Cores (Background, Texto, Bordas)
 
 ### 4.1 Cores de fundo (`bg-`)
+> [Link com as cores e como são usadas no tailwind](https://tailwindcss.com/docs/colors)
 
 | Classe                                            | Descrição                          |
 | ------------------------------------------------- | ---------------------------------- |
@@ -144,21 +145,59 @@ Mesma paleta de cores, mas aplicada ao texto.
 
 ## 7. Responsividade (Breakpoints)
 
-| Breakpoint | Largura mínima | Descrição                           |
-| ---------- | -------------- | ----------------------------------- |
-| `sm:`      | 640px          | Telas pequenas (smartphones em pé). |
-| `md:`      | 768px          | Telas médias (tablets).             |
-| `lg:`      | 1024px         | Telas grandes (notebooks).          |
-| `xl:`      | 1280px         | Telas extra grandes (desktops).     |
-| `2xl:`     | 1536px         | Telas muito grandes.                |
+Responsividade é o nome que damos quando um site se ajusta para ficar legível em telas pequenas e grandes. No Tailwind isso é feito com prefixos que você coloca antes das classes.
 
-**Uso:** basta adicionar o prefixo antes da classe.  
-**Exemplo:**  
+| Prefixo | Quando começa a valer | O que isso significa, simples |
+| ------- | --------------------- | ---------------------------- |
+| (sem)   | todas as telas        | regra padrão (sempre)        |
+| `sm:`   | 640px                 | celulares (em pé)            |
+| `md:`   | 768px                 | tablets                      |
+| `lg:`   | 1024px                | notebooks                    |
+| `xl:`   | 1280px                | desktops maiores             |
+| `2xl:`  | 1536px                | telas muito grandes          |
+
+Como usar: escreva o prefixo antes da classe. Exemplo fácil:
+
 ```html
 <div class="text-sm md:text-lg lg:text-2xl">
-  Este texto muda de tamanho conforme a tela.
+  O texto aumenta em telas maiores.
 </div>
 ```
+
+---
+
+### 7.1 Container responsivo
+
+O `container` serve para deixar o conteúdo com largura agradável e sempre centralizado. É bom para páginas com texto, artigos ou seções principais.
+
+Jeito rápido de usar:
+- Coloque `container` no elemento que envolve seu conteúdo.
+- Adicione `mx-auto` para centralizar.
+- Use `px-4` (ou `sm:px-6`) para dar espaço nas laterais em telas pequenas/maiores.
+
+Larguras aproximadas que o `container` usa por padrão:
+
+| Quando | Largura máxima aproximada |
+| ------ | ------------------------- |
+| base   | 100% (sem limite pequeno) |
+| sm     | ~640px                    |
+| md     | ~768px                    |
+| lg     | ~1024px                   |
+| xl     | ~1280px                   |
+| 2xl    | ~1536px                   |
+
+Exemplo simples:
+
+```html
+<div class="container mx-auto px-4 sm:px-6">
+  <section class="py-8">
+    <h1 class="text-2xl font-bold">Título</h1>
+    <p class="mt-2 text-gray-600">Conteúdo centralizado que não fica largo demais em telas grandes.</p>
+  </section>
+</div>
+```
+
+Se você usa Tailwind com build (npm), dá para mudar esses valores em `tailwind.config.js` — por exemplo para deixar o `container` sempre centralizado e com outro `padding` padrão.
 
 ---
 
