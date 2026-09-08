@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Repositorio da turma de Desing Web 2026
 
 Enviando na main
@@ -7,104 +8,55 @@ Enviando na main
 ### Repositório da turma de Desing Web 2026
 =======
 # Repositório da turma de Design Web 2026
+=======
+## Tarefa 9 – Seção de Footer
+>>>>>>> upstream/main
 
-
-## 4ª Semana
-
-### Passo 1 – Criar a branch da atividade
-Crie uma branch da atividade. 
-```
-git checkout -b atividade-1
-```
-### Passo 2 – Editar o arquivo index.html
-Substitua o conteúdo do <body> pelo código abaixo (ou personalize):
-
-```
-<div class="max-w-sm bg-white rounded-lg shadow-lg p-6 text-center">
-  <img src="https://picsum.photos/seed/1/100" alt="Foto de perfil" class="w-24 h-24 rounded-full mx-auto mb-4">
-  <h2 class="text-2xl font-bold text-gray-800">Seu Nome</h2>
-  <p class="text-gray-600 mt-2">Desenvolvedor Web em aprendizado</p>
-  <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-    Seguir
-  </button>
-</div>
-```
-
-## Passo 3 – Commit e push
-```
-git add index.html
-git commit -m "adiciona card de perfil estilizado com Tailwind"
-git push origin atividade-1
-```
-
-### Passo 4 – Enviar o link no Google Sala de Aula
-- No GitHub, vá até seu repositório fork.
-- No seletor de branches, escolha atividade-1.
-- Copie a URL (ex: https://github.com/SEU_USUARIO/turma-design-web/tree/atividade-1).
-- Cole esse link no campo de entrega da tarefa.
-
-
-## 3ª Semana 
-
-Fizemos algumas atividades, focados no Github. Criamos e clonamos nosso repositório principal.
-
-### Passo 1 – Fork do repositório
-
-- Acesse: https://github.com/professor/turma-design-web
-- Clique no botão Fork (canto superior direito). Isso criará uma cópia na sua conta. 
-
-### Passo 2 – Clonar o fork
-Abra o terminal (Git Bash, PowerShell ou terminal integrado do VS Code) e execute
-
-```
-git clone https://github.com/SEU_USUARIO/turma-design-web.git
-cd turma-design-web
-```
+A partir do código HTML do footer do IFRN (página index.html), você deve adicionar classes Tailwind para estilizar o rodapé, reproduzindo o layout institucional com links, informações de contato, redes sociais, banners e copyright.
 
 >>>>>>> upstream/main
 
 
-Arquivo de codigo compartilhado
+### regras
 
-## 2ª Semana 
-
-### Cartão de Apresentação – Bruno Nakamura
-
-Projeto didático para ensinar a integração entre **HTML semântico** e **SCSS** (pré-processador CSS).
-
-## Estrutura
-
-projeto/
-
-├── index.html 
-
-├── scss/
-
-└── style.scss 
-
-└── css/
-
-└── style.css # Arquivo gerado pelo SCSS (não edite jamais ou vai perder tudo para sempre)
+- Use apenas classes utilitárias do Tailwind – sem CSS customizado.
+- Não modifique a estrutura HTML (tags, conteúdo, atributos href, src, etc.).
+- Consulte o Cheatsheet para encontrar as classes adequadas.
 
 
-## Como usar
+---
 
-1. **Clone ou baixe** os arquivos.
-2. **Compile o SCSS** para CSS:
-   - Com o Sass instalado: `sass scss/style.scss css/style.css --watch`
-   - Ou use a extensão "Live Sass Compiler" no VS Code.
-3. **Abra** o `index.html` no navegador.
+## Passo a passo para execução
 
-## Personalize
+1. **Atualize seu fork** do repositório da turma.
+2. **Crie uma nova branch** para esta tarefa:  
+   ```bash
+   git checkout -b atividade-9-footer
+   ```
+3. **Insira classes Tailwind** em cada elemento para reconstruir o layout, visualizando como está o site do IFRN e criar a estrutura adequada com as classes mais proeminentes.
+   
+4. **Commit e push**:
+   ```bash
+   git add .
+   git commit -m "Atividade 9 - Footer institucional com Tailwind e Phosphor"
+   git push origin atividade-9-footer
+   ```
 
-- **Cores**: altere as variáveis no início do `style.scss` (`$color-primary`, `$color-secondary`, etc.).
-- **Imagem**: substitua a URL placeholder (`https://via.placeholder.com/...`) pelo seu próprio avatar.
-- **Conteúdo**: edite o HTML para mudar texto, tecnologias e links.
+5.  **Envie o link da branch** no Google Sala de Aula.
 
-## Boas práticas aplicadas
+## Dicas
 
+<<<<<<< HEAD
 - Tags HTML semânticas (`header`, `main`, `section`, `footer`)
 - Atributos de acessibilidade (`role`, `aria-label`, `focus-visible`)
 - Responsividade com mixins (mobile-first)
 - Código SCSS organizado com variáveis e aninhamento
+>>>>>>> upstream/main
+=======
+- Use o **Cheatsheet** que foi fornecido para consultar rapidamente as classes.
+- Utilize o **Tailwind Play** (https://play.tailwindcss.com/) para testar pequenos trechos.
+- Use bg-green-800 ou bg-[#23472B] para o fundo do footer.
+- Para os links do sitemap, text-white e hover:text-green-300.
+- Para os ícones sociais, use text-2xl e hover:text-green-300.
+- Aproveite o espaçamento gap-* para organizar os elementos.
 >>>>>>> upstream/main
