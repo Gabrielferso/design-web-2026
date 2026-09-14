@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-### Repositorio da turma de Desing Web 2026
-
-Enviando na main
-=======
-### Repositório da turma de Desing Web 2026
-=======
-# Repositório da turma de Design Web 2026
-=======
 ## Tarefa 9 – Seção de Footer
->>>>>>> upstream/main
 
 A partir do código HTML do footer do IFRN (página index.html), você deve adicionar classes Tailwind para estilizar o rodapé, reproduzindo o layout institucional com links, informações de contato, redes sociais, banners e copyright.
 
@@ -31,14 +19,14 @@ A partir do código HTML do footer do IFRN (página index.html), você deve adic
 1. **Atualize seu fork** do repositório da turma.
 2. **Crie uma nova branch** para esta tarefa:  
    ```bash
-   git checkout -b atividade-9-footer
+   git checkout -b features/atividade-10-evento
    ```
 3. **Insira classes Tailwind** em cada elemento para reconstruir o layout, visualizando como está o site do IFRN e criar a estrutura adequada com as classes mais proeminentes.
    
 4. **Commit e push**:
    ```bash
    git add .
-   git commit -m "Atividade 9 - Footer institucional com Tailwind e Phosphor"
+   git commit -m "Atividade 10 - Seção de eventos"
    git push origin atividade-9-footer
    ```
 
