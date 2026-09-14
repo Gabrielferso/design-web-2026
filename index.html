@@ -11,110 +11,252 @@
 
 <body>
 
-    <!-- ===========  Eventos  ================= -->
-    <section>
-        <div>
+    <!-- =========== Eventos ================= -->
+    <section class="bg-[#E8F2EC] py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
             <!-- Cabeçalho da seção -->
-            <div>
-                <h2>Eventos</h2>
-                <a href="/eventos/">
-                    Todos os eventos
-                    <span aria-hidden="true"></span>
-                </a>
-                <div>
-                    <p>Conheça todos os eventos - atividades, festivais, congressos, palestras e outros - que englobam
-                        os <i>campi</i> do IFRN em diferentes escalas de alcance social.</p>
+            <div class="mb-14">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <h2 class="text-4xl font-bold text-[#23472B]">Eventos</h2>
+
+                    <a href="/eventos/"
+                        class="inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#23472B] border border-[#23472B] rounded-full px-5 py-3 hover:bg-[#23472B] hover:text-white transition self-start md:self-auto">
+                        Todos os eventos
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
                 </div>
+
+                <p class="max-w-2xl mt-6 text-lg leading-relaxed text-[#003B1C]">
+                    Conheça todos os eventos - atividades, festivais, congressos, palestras e outros - que englobam os
+                    <i>campi</i> do IFRN em diferentes escalas de alcance social.
+                </p>
             </div>
 
             <!-- Grade de cards de eventos -->
-            <div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <a href="/eventos/9486/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Pau dos Ferros</span>
-                    <h3>Vivências em Arte</h3>
-                    <div>
-                        <span>07</span>
-                        <span>dez</span>
-                        <span>2026</span>
+                <!-- Card 1 -->
+                <a href="/eventos/9486/"
+                    class="bg-[#F8FCF9] rounded-2xl border border-[#8ED3A5] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#58B06B] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#006B35]">
+                        <i class="ph ph-triangle"></i>
+                        Em breve
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        Pau dos Ferros
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        Vivências em Arte
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">07</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>dez</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9595/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Caicó</span>
-                    <h3>III Feira Seridó Ciência</h3>
-                    <div>
-                        <span>25</span>
-                        <span>nov</span>
-                        <span>2026</span>
+                <!-- Card 2 -->
+                <a href="/eventos/9595/"
+                    class="bg-[#F8FCF9] rounded-2xl border border-[#8ED3A5] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#58B06B] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#006B35]">
+                        <i class="ph ph-triangle"></i>
+                        Em breve
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        Caicó
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        III Feira Seridó Ciência
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">25</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>nov</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9783/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> João Câmara</span>
-                    <h3>CPOP 2026 - Competição de Pontes de Palito de Picolé do IFRN João Câmara</h3>
-                    <div>
-                        <span>04</span>
-                        <span>nov</span>
-                        <span>2026</span>
+                <!-- Card 3 -->
+                <a href="/eventos/9783/"
+                    class="bg-[#F8FCF9] rounded-2xl border border-[#8ED3A5] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#58B06B] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#006B35]">
+                        <i class="ph ph-triangle"></i>
+                        Em breve
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        João Câmara
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        CPOP 2026 - Competição de Pontes de Palito de Picolé do IFRN João Câmara
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">04</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>nov</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9333/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Reitoria</span>
-                    <h3>III Encontro Anual da Comissão Própria de Avaliação</h3>
-                    <div>
-                        <span>04</span>
-                        <span>nov</span>
-                        <span>2026</span>
+                <!-- Card 4 -->
+                <a href="/eventos/9333/"
+                    class="bg-[#F8FCF9] rounded-2xl border border-[#8ED3A5] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#58B06B] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#006B35]">
+                        <i class="ph ph-triangle"></i>
+                        Em breve
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        Reitoria
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        III Encontro Anual da Comissão Própria de Avaliação
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">04</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>nov</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9739/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Pau dos Ferros</span>
-                    <h3>Oficina "Dando cores ao sol"</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
+                <!-- Card 5 -->
+                <a href="/eventos/9739/"
+                    class="bg-[#F3FBEA] rounded-2xl border border-[#52C41A] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#389E0D] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#249B16]">
+                        <i class="ph ph-circle"></i>
+                        Em andamento
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        Pau dos Ferros
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        Oficina "Dando cores ao sol"
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">14</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>set</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9764/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> São Gonçalo do Amarante</span>
-                    <h3>IFJURIS: Introdução ao Direito Constitucional</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
+                <!-- Card 6 -->
+                <a href="/eventos/9764/"
+                    class="bg-[#F3FBEA] rounded-2xl border border-[#52C41A] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#389E0D] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#249B16]">
+                        <i class="ph ph-circle"></i>
+                        Em andamento
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        São Gonçalo do Amarante
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        IFJURIS: Introdução ao Direito Constitucional
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">14</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>set</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9714/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Reitoria</span>
-                    <h3>ASTEEAD Conecta: gestão, monitoramento e apoio à EaD no IFRN</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
+                <!-- Card 7 -->
+                <a href="/eventos/9714/"
+                    class="bg-[#F3FBEA] rounded-2xl border border-[#52C41A] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#389E0D] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#249B16]">
+                        <i class="ph ph-circle"></i>
+                        Em andamento
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        Reitoria
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        ASTEEAD Conecta: gestão, monitoramento e apoio à EaD no IFRN
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">14</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>set</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
-                <a href="/eventos/9711/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Currais Novos</span>
-                    <h3>Produção e exposição de Sala Temática: Abelha e Mel.</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
+                <!-- Card 8 -->
+                <a href="/eventos/9711/"
+                    class="bg-[#F3FBEA] rounded-2xl border border-[#52C41A] p-6 flex flex-col gap-4 min-h-[260px] hover:shadow-md hover:border-[#389E0D] transition-all duration-200">
+
+                    <span class="inline-flex items-center gap-2 text-sm font-semibold text-[#249B16]">
+                        <i class="ph ph-circle"></i>
+                        Em andamento
+                    </span>
+
+                    <span title="Campus"
+                        class="inline-flex items-center gap-2 text-sm text-gray-600 border border-gray-300 rounded-full px-3 py-1 self-start">
+                        <i class="ph ph-buildings"></i>
+                        Currais Novos
+                    </span>
+
+                    <h3 class="text-lg font-medium text-[#101C14] leading-snug flex-1">
+                        Produção e exposição de Sala Temática: Abelha e Mel.
+                    </h3>
+
+                    <div class="flex items-end gap-2 mt-2">
+                        <span class="text-6xl font-bold text-[#009447] leading-none">14</span>
+                        <div class="flex flex-col text-lg font-semibold text-[#009447] uppercase leading-tight">
+                            <span>set</span>
+                            <span class="text-lg text-[#009447] font-normal">2026</span>
+                        </div>
                     </div>
                 </a>
 
