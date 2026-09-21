@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
+
     <title>Atividade 10 – Seção de Eventos</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@latest/src/css/phosphor.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
 </head>
 
-<body>
+
 
     <!-- ===========  Eventos  ================= -->
     <section>
@@ -42,6 +47,107 @@
                     </div>
                 </a>
 
+<body class="max-w-full mx-auto bg-gray-100 min-h-screen">
+
+    <header class="bg-green-600 bg-cover bg-center border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex flex-col gap-3">
+
+            <!-- LINHA 1: logo/slogan + ações -->
+            <div class="flex items-center justify-between gap-4 flex-nowrap">
+
+                <!-- LOGO + SLOGAN -->
+                <div class="flex flex-col shrink-0">
+                    <h1 class="m-0">
+                        <a href="#"
+                            title="Instituto Federal de Educação, Ciência e Tecnologia do Estado do Rio Grande do Norte"
+                            class="text-2xl md:text-3xl font-bold text-white no-underline hover:text-green-100 transition">
+                            <img src="assets/img/ifrn_logo_branco.svg" alt="IFRN" class="h-10 md:h-12" />
+                        </a>
+                    </h1>
+                    <p class="slogan hidden md:block text-sm text-white/80 mt-1">
+                        Educação, Ciência, Cultura e Tecnologia em todo o Rio Grande do Norte
+                    </p>
+                </div>
+
+                <!-- MENU HAMBÚRGUER (mobile) -->
+                <button id="menuToggle" aria-label="Menu"
+                    class="md:hidden bg-transparent border-none p-2 rounded cursor-pointer text-white text-2xl hover:bg-white/10 transition">
+                    <i class="ph ph-list"></i>
+                </button>
+
+                <!-- AÇÕES (ícones sociais, busca, contraste, modo escuro) -->
+                <div class="hidden md:flex items-center gap-3 shrink-0">
+
+                    <!-- Ícones sociais -->
+                    <div class="social hidden lg:flex items-center gap-2 text-white/80">
+                        <a href="#" aria-label="Instagram" class="hover:text-white transition"><i class="ph ph-instagram-logo text-lg"></i></a>
+                        <a href="#" aria-label="Twitter" class="hover:text-white transition"><i class="ph ph-twitter-logo text-lg"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="hover:text-white transition"><i class="ph ph-linkedin-logo text-lg"></i></a>
+                        <a href="#" aria-label="YouTube" class="hover:text-white transition"><i class="ph ph-youtube-logo text-lg"></i></a>
+                        <a href="#" aria-label="Spotify" class="hover:text-white transition"><i class="ph ph-spotify-logo text-lg"></i></a>
+                        <a href="#" aria-label="TikTok" class="hover:text-white transition"><i class="ph ph-tiktok-logo text-lg"></i></a>
+                    </div>
+
+                    <!-- Busca -->
+                    <form method="get" action="/search/" id="busca"
+                        class="flex items-center bg-white/90 rounded-full px-3 py-1 border border-transparent focus-within:ring-2 focus-within:ring-white">
+                        <input type="search" name="query" placeholder="Busca" aria-label="Busca"
+                            class="bg-transparent outline-none text-sm text-gray-700 w-20 sm:w-32 focus:outline-none" />
+                        <button type="submit" aria-label="Pesquisar"
+                            class="bg-transparent border-none p-1 cursor-pointer text-gray-600 hover:text-green-700 transition">
+                            <i class="ph ph-magnifying-glass"></i>
+                        </button>
+                    </form>
+
+                    <!-- Alto contraste -->
+                    <button id="altocontraste" type="button" aria-label="Alto contraste"
+                        class="bg-transparent border-none p-2 rounded cursor-pointer text-white/80 hover:bg-white/10 hover:text-white transition">
+                        <i class="ph ph-contrast"></i>
+                    </button>
+
+                    <!-- Modo escuro -->
+                    <button type="button" aria-label="Modo escuro"
+                        class="bg-transparent border-none p-2 rounded cursor-pointer text-white/80 hover:bg-white/10 hover:text-white transition">
+                        <i class="ph ph-moon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <hr class="border-white">
+
+            <!-- LINHA 2: navegação principal -->
+            <nav aria-label="Navegação principal"
+                class="hidden md:flex flex-wrap items-center gap-4 lg:gap-6 w-full">
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Processos seletivos</a>
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Cursos</a>
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Campi</a>
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Institucional</a>
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Acesso à Informação</a>
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Eventos</a>
+                <a href="#" class="text-white no-underline hover:text-green-100 transition text-sm">Serviços</a>
+            </nav>
+        </div>
+    </header>
+
+ <!--Atividade 8 abaixo-->
+
+    <section class="grid min-h-screen place-content-center">
+        <header class="px-3 py-10 ">
+            <h2 class="font-bold text-3xl text-green-900 py-2 ">Notícias</h2>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl">
+            <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300.">
+            <img src="https://picsum.photos/seed/reuniao/400/200" alt="Reunião" class="w-full h-48 object-cover " />
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Reunião</span>
+                <time datetime="2026-08-31T10:00" class="text-gray-500 text-xs">Há 1 hora, 3 minutos</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">Gestão e representação sindical dialogam sobre demandas dos servidores</h3>
+            <p class="text-gray-700 text-sm">Encontros realizados em agosto abordaram temas relacionados ao PGD, prioridades legais, readaptação e
+                banco de horas.</p>
+        </article>
+
+
                 <a href="/eventos/9595/">
                     <span>Em breve</span>
                     <span title="Campus"><span aria-hidden="true"></span> Caicó</span>
@@ -52,6 +158,7 @@
                         <span>2026</span>
                     </div>
                 </a>
+
 
                 <a href="/eventos/9783/">
                     <span>Em breve</span>
@@ -64,6 +171,17 @@
                     </div>
                 </a>
 
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/cultura/400/200" alt="Arte e Cultura" class="w-full h-48 object-cover"/>
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Arte e Cultura</span>
+                <time datetime="2026-08-27T14:00" class="text-gray-500 text-xs">Há 4 dias</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">Intercâmbio entre museus de brinquedos populares tem programação gratuita em Natal</h3>
+            <p class="text-gray-700 text-sm">Atividades acontecem nesta sexta-feira (28) e sábado (29), no Centro de Tecnologia e Cultura do IFRN</p>
+        </article>
+>>>>>>> atividade-8
+
                 <a href="/eventos/9333/">
                     <span>Em breve</span>
                     <span title="Campus"><span aria-hidden="true"></span> Reitoria</span>
@@ -75,6 +193,7 @@
                     </div>
                 </a>
 
+
                 <a href="/eventos/9739/">
                     <span>Em andamento</span>
                     <span title="Campus"><span aria-hidden="true"></span> Pau dos Ferros</span>
@@ -84,7 +203,17 @@
                         <span>set</span>
                         <span>2026</span>
                     </div>
-                </a>
+
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/intercampi/400/200" alt="Jogos Intercampi" class="w-full h-48 object-cover" />
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Jogos Intercampi Estudantis 2026</span>
+                <time datetime="2026-08-31T09:00" class="text-gray-500 text-xs">Há 1 hora, 45 minutos</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">Intercampi chega ao fim com definição das últimas medalhas</h3>
+            <p class="text-gray-700 text-sm">Resultados de sexta-feira e sábado encerraram a fase final estadual</p>
+        </article>
+
 
                 <a href="/eventos/9764/">
                     <span>Em andamento</span>
@@ -97,6 +226,7 @@
                     </div>
                 </a>
 
+
                 <a href="/eventos/9714/">
                     <span>Em andamento</span>
                     <span title="Campus"><span aria-hidden="true"></span> Reitoria</span>
@@ -107,6 +237,18 @@
                         <span>2026</span>
                     </div>
                 </a>
+
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/alinhamento/400/200" alt="Alinhamento" class="w-full h-48 object-cover"/>
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Alinhamento</span>
+                <time datetime="2026-08-27T15:00" class="text-gray-500 text-xs">Há 4 dias, 1 hora</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">Comissão de docentes realiza encontro presencial com capacitação</h3>
+            <p class="text-gray-700 text-sm">Programação reúne integrantes para discutir o regimento interno e aprofundar conhecimentos sobre
+                processos relacionados à carreira docente.</p>
+        </article>
+
 
                 <a href="/eventos/9711/">
                     <span>Em andamento</span>
@@ -119,8 +261,57 @@
                     </div>
                 </a>
 
+
             </div>
         </div>
+
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/campus/400/200" alt="Campus Santa Cruz" class="w-full h-48 object-cover"/>
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Campus Santa Cruz</span>
+                <time datetime="2026-08-30T08:00" class="text-gray-500 text-xs">Há 20 horas</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">IFRN sediou eventos sobre acessibilidade e inclusão na educação</h3>
+            <p class="text-gray-700 text-sm">Programação ocorreu entre os dias 26 e 28 de agosto, no Campus Santa Cruz</p>
+        </article>
+
+
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/judo/400/200" alt="Judô" class="w-full h-48 object-cover"/>
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Intercampi 2026</span>
+                <time datetime="2026-08-27T16:00" class="text-gray-500 text-xs">Há 4 dias, 16 horas</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">Judô estreia e futebol define classificados nos Jogos Intercampi</h3>
+            <p class="text-gray-700 text-sm">Quinta-feira reúne estreia da modalidade e rodadas que encaminham as semifinais da fase final</p>
+        </article>
+
+
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/evento/400/200" alt="Evento" class="w-full h-48 object-cover"/>
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">Evento</span>
+                <time datetime="2026-08-28T10:00" class="text-gray-500 text-xs">Há 3 dias, 22 horas</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">III Encontro de Assessores de Projetos de Ensino reúne representantes dos 22 Campi na Reitoria</h3>
+            <p class="text-gray-700 text-sm">O evento promoveu formação, troca de experiências e discussões sobre a regulamentação e o acompanhamento
+                dos Projetos de Ensino no Instituto.</p>
+        </article>
+
+
+        <article class="max-w-sm mx-auto bg-white-rounded bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="https://picsum.photos/seed/jee/400/200" alt="JEE 2026" class="w-full h-48 object-cover"/>
+            <header class="font-thin">
+                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full m-1">JEE 2026</span>
+                <time datetime="2026-08-26T18:00" class="text-gray-500 text-xs">Há 5 dias, 12 horas</time>
+            </header>
+            <h3 class="text-xl font-bold text-green-800 mt-2">Novas modalidades ampliam programação dos Jogos Intercampi nesta quarta-feira</h3>
+            <p class="text-gray-700 text-sm">Segundo dia da fase final teve provas individuais, disputas coletivas e continuidade das rodadas
+                classificatórias</p>
+        </article>
+        </div>
+        
+
     </section>
 
 
