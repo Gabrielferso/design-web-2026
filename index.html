@@ -1,126 +1,387 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atividade 10 – Seção de Eventos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Gabriel - Portfólio</title>
+    <link rel="icon" href="assets/img/Logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons@latest/src/css/phosphor.css" />
 </head>
 
-<body>
 
-    <!-- ===========  Eventos  ================= -->
-    <section>
-        <div>
-            <!-- Cabeçalho da seção -->
-            <div>
-                <h2>Eventos</h2>
-                <a href="/eventos/">
-                    Todos os eventos
-                    <span aria-hidden="true"></span>
-                </a>
-                <div>
-                    <p>Conheça todos os eventos - atividades, festivais, congressos, palestras e outros - que englobam
-                        os <i>campi</i> do IFRN em diferentes escalas de alcance social.</p>
-                </div>
-            </div>
+<body class="min-h-screen bg-[#232323] text-white">
 
-            <!-- Grade de cards de eventos -->
-            <div>
+    <header class="navbar bg-[#232323] px-6 md:px-12 lg:px-24 py-5">
 
-                <a href="/eventos/9486/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Pau dos Ferros</span>
-                    <h3>Vivências em Arte</h3>
-                    <div>
-                        <span>07</span>
-                        <span>dez</span>
-                        <span>2026</span>
-                    </div>
-                </a>
+        <div class="navbar-start">
 
-                <a href="/eventos/9595/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Caicó</span>
-                    <h3>III Feira Seridó Ciência</h3>
-                    <div>
-                        <span>25</span>
-                        <span>nov</span>
-                        <span>2026</span>
-                    </div>
-                </a>
+            <a href="index.html" class="btn btn-ghost p-0 hover:bg-transparent">
 
-                <a href="/eventos/9783/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> João Câmara</span>
-                    <h3>CPOP 2026 - Competição de Pontes de Palito de Picolé do IFRN João Câmara</h3>
-                    <div>
-                        <span>04</span>
-                        <span>nov</span>
-                        <span>2026</span>
-                    </div>
-                </a>
+                <img src="assets/img/Logo.png" alt="Logo" class="w-12 h-12 object-contain">
 
-                <a href="/eventos/9333/">
-                    <span>Em breve</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Reitoria</span>
-                    <h3>III Encontro Anual da Comissão Própria de Avaliação</h3>
-                    <div>
-                        <span>04</span>
-                        <span>nov</span>
-                        <span>2026</span>
-                    </div>
-                </a>
+            </a>
 
-                <a href="/eventos/9739/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Pau dos Ferros</span>
-                    <h3>Oficina "Dando cores ao sol"</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
-                    </div>
-                </a>
-
-                <a href="/eventos/9764/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> São Gonçalo do Amarante</span>
-                    <h3>IFJURIS: Introdução ao Direito Constitucional</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
-                    </div>
-                </a>
-
-                <a href="/eventos/9714/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Reitoria</span>
-                    <h3>ASTEEAD Conecta: gestão, monitoramento e apoio à EaD no IFRN</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
-                    </div>
-                </a>
-
-                <a href="/eventos/9711/">
-                    <span>Em andamento</span>
-                    <span title="Campus"><span aria-hidden="true"></span> Currais Novos</span>
-                    <h3>Produção e exposição de Sala Temática: Abelha e Mel.</h3>
-                    <div>
-                        <span>14</span>
-                        <span>set</span>
-                        <span>2026</span>
-                    </div>
-                </a>
-
-            </div>
         </div>
+
+        <div class="navbar-center hidden md:flex">
+
+            <nav class="menu menu-horizontal gap-2">
+
+                <li>
+                    <a href="sobre-mim.html" class="text-white font-bold hover:text-[#005782]">
+                        Sobre Mim
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contato" class="text-white font-bold hover:text-[#005782]">
+                        Entre em contato
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projetos" class="text-white font-bold hover:text-[#005782]">
+                        Projetos
+                    </a>
+                </li>
+
+            </nav>
+
+        </div>
+
+        <div class="navbar-end gap-2">
+
+            <a href="https://www.instagram.com/gabriel.frndsz/" target="_blank"
+                class="btn btn-circle bg-[#005782] border-none hover:scale-110 transition-transform">
+                <img src="assets/img/social-ig.png" alt="Instagram" class="w-7 h-7">
+            </a>
+
+            <a href="https://github.com/Gabrielferso" target="_blank"
+                class="btn btn-circle bg-[#005782] border-none hover:scale-110 transition-transform">
+                <img src="assets/img/Git hub Social.png" alt="GitHub" class="w-7 h-7">
+            </a>
+
+            <a href="mailto:joaobiel171109@gmail.com"
+                class="btn btn-circle bg-[#005782] border-none hover:scale-110 transition-transform">
+                <img src="assets/img/Gmail social.png" alt="Email" class="w-7 h-7">
+            </a>
+
+        </div>
+
+    </header>
+
+    <section class="hero min-h-[calc(100vh-90px)] relative overflow-hidden">
+
+        <div class="absolute top-[-156px] w-[542px] h-[810px] bg-[#005782] rounded-b-[500px] z-0
+                   max-md:w-[280px] max-md:h-[500px] max-md:top-0"></div>
+
+
+        <div class="hero-content flex-col text-center relative z-10 w-full">
+
+
+            <h1 class="text-[clamp(4rem,10vw,9.375rem)] leading-none tracking-wide
+                       relative z-20 mb-[-8rem]
+                       max-md:mb-[-3rem]" style="font-family: 'BBH Hegarty', sans-serif;">
+                PORTFOLIO
+            </h1>
+
+            <img src="assets/img/foto.png" alt="João Gabriel" class="
+                    relative z-30
+                    w-[542px] h-[542px]
+                    object-cover object-top
+                    rounded-b-[500px]
+                    max-md:w-[280px]
+                    max-md:h-[300px]
+                    max-md:rounded-b-[150px]
+                ">
+
+
+            <h2 class="
+                    relative z-30
+                    text-[40px]
+                    mt-5
+                    max-md:text-[28px]
+                " style="font-family: 'BBH Hegarty', sans-serif;">
+                UX / UI DESIGNER
+            </h2>
+
+            <div class="flex gap-3 flex-wrap justify-center mt-5 relative z-40">
+
+                <a href="sobre-mim.html" class="btn btn-primary btn-lg">
+                    Iniciar
+                </a>
+
+                <a href="#projetos" class="btn btn-outline btn-lg">
+                    Ver projetos
+                </a>
+
+            </div>
+
+        </div>
+
     </section>
+
+    <section id="projetos" class="py-24 px-6 md:px-12 lg:px-24 bg-[#232323]">
+
+        <div class="max-w-6xl mx-auto">
+
+            <div class="text-center mb-12">
+
+                <div class="flex justify-center gap-2 mb-4">
+
+                    <span class="badge badge-primary">
+                        Projetos
+                    </span>
+
+                    <span class="badge badge-outline">
+                        Acadêmicos
+                    </span>
+
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-bold">
+                    Meus projetos
+                </h2>
+
+                <p class="mt-4 text-gray-400">
+                    Alguns projetos desenvolvidos durante minha formação.
+                </p>
+
+            </div>
+
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+                <div class="card bg-base-100 shadow-xl">
+
+                    <div class="card-body">
+
+                        <div class="badge badge-primary">
+                            Web
+                        </div>
+
+                        <h2 class="card-title">
+                            Desenvolvimento Web
+                        </h2>
+
+                        <p>
+                            Projetos utilizando HTML, CSS, Tailwind CSS
+                            e componentes DaisyUI para criação de
+                            interfaces responsivas.
+                        </p>
+
+                        <div class="card-actions justify-end">
+
+                            <a href="#contato" class="btn btn-primary">
+                                Conhecer
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+
+                    <div class="card-body">
+
+                        <div class="badge badge-secondary">
+                            Banco de Dados
+                        </div>
+
+                        <h2 class="card-title">
+                            Modelagem de Dados
+                        </h2>
+
+                        <p>
+                            Projetos acadêmicos envolvendo entidades,
+                            relacionamentos, chaves e modelagem
+                            de bancos de dados.
+                        </p>
+
+                        <div class="card-actions justify-end">
+
+                            <a href="#contato" class="btn btn-outline btn-secondary">
+                                Ver projeto
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+
+                    <div class="card-body">
+
+                        <div class="badge badge-accent">
+                            Pesquisa
+                        </div>
+
+                        <h2 class="card-title">
+                            Projeto Alecrim
+                        </h2>
+
+                        <p>
+                            Trabalho acadêmico sobre o bairro Alecrim,
+                            sua importância econômica e os principais
+                            desafios encontrados na região.
+                        </p>
+
+                        <div class="card-actions justify-end">
+
+                            <a href="#contato" class="btn btn-outline btn-accent">
+                                Conhecer
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contato" class="py-24 px-6 md:px-12 lg:px-24 bg-base-200">
+
+        <div class="max-w-3xl mx-auto">
+
+            <div class="text-center mb-10">
+
+                <span class="badge badge-primary mb-4">
+                    Contato
+                </span>
+
+                <h2 class="text-4xl font-bold">
+                    Entre em contato
+                </h2>
+
+            </div>
+
+
+            <form class="card bg-base-100 shadow-xl">
+
+                <div class="card-body">
+
+                    <div class="form-control">
+
+                        <label class="label">
+                            <span class="label-text">
+                                Nome
+                            </span>
+                        </label>
+
+                        <input type="text" placeholder="Seu nome" class="input input-bordered w-full">
+
+                    </div>
+
+
+                    <div class="form-control">
+
+                        <label class="label">
+                            <span class="label-text">
+                                E-mail
+                            </span>
+                        </label>
+
+                        <input type="email" placeholder="seuemail@email.com" class="input input-bordered w-full">
+
+                    </div>
+
+
+                    <div class="form-control">
+
+                        <label class="label">
+                            <span class="label-text">
+                                Mensagem
+                            </span>
+                        </label>
+
+                        <textarea class="textarea textarea-bordered h-32"
+                            placeholder="Digite sua mensagem..."></textarea>
+
+                    </div>
+
+
+                    <div class="card-actions justify-end">
+
+                        <button type="submit" class="btn btn-primary">
+                            Enviar
+                        </button>
+
+                        <button type="reset" class="btn btn-outline">
+                            Limpar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <div class="alert alert-info mt-6">
+
+                <span>
+                    Você também pode entrar em contato pelas minhas
+                    redes sociais ou pelo e-mail.
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer footer-center bg-base-300 text-base-content p-8">
+
+        <div>
+
+            <div class="flex gap-3 justify-center">
+
+                <a href="https://www.instagram.com/gabriel.frndsz/" target="_blank" class="btn btn-circle btn-outline">
+                    <img src="assets/img/social-ig.png" alt="Instagram" class="w-6 h-6">
+                </a>
+
+
+                <a href="https://github.com/Gabrielferso" target="_blank" class="btn btn-circle btn-outline">
+                    <img src="assets/img/Git hub Social.png" alt="GitHub" class="w-6 h-6">
+                </a>
+
+
+                <a href="mailto:joaobiel171109@gmail.com" class="btn btn-circle btn-outline">
+                    <img src="assets/img/Gmail social.png" alt="E-mail" class="w-6 h-6">
+                </a>
+
+            </div>
+
+            <p class="font-bold mt-4">
+                João Gabriel
+            </p>
+
+            <p>
+                Portfólio • UX/UI • Desenvolvimento Web
+            </p>
+
+            <p>
+                © 2026 João Gabriel
+            </p>
+
+        </div>
+
+    </footer>
 
 </body>
 
