@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
+
+<body>
+
+    <div id="app" class="w-full max-w-sm rounded-xl border border-slate-200 bg-white shadow-sm">
+        <div class="p-5">
+            <h2 class="text-lg font-semibold">Mensagem:</h2>
+
+            <input v-model="texto" class="border border-slate-300 rounded-lg px-3 py-2 w-full">
+            <button @click="texto = ''">Limpar</button>
+
+            <div class="rounded-lg p-3 mt-4 border border-slate-200"
+                :class="texto.length > 20 ? 'bg-red-100 text-red-900' : 'bg-brand-50 text-brand-900'">
+                <span>{{ texto || 'Aguardando...' }}</span>
+            </div>
+
+            <p class="text-sm">Caracteres: {{ texto.length }}</p>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return { texto: '' }
+            }
+        }).mount('#app');
+    </script>
+
+</body>
+
+</html>
