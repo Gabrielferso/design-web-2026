@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,10 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body class="min-h-screen bg-base-200 flex items-center justify-center p-6">
 
-  
+
   <div id="app" class="card bg-base-100 shadow-2xl w-full max-w-md">
     <div class="card-body">
 
@@ -89,7 +91,14 @@
         //        this.display = this.display + digit
         // ==========================================
         appendDigit(digit) {
-          // ... seu código aqui
+          if (this.waitingForSecond) {
+            this.display = digit;
+            this.waitingForSecond = false
+          } else if (this.display === '0') {
+            this.display = digit;
+          } else {
+            this.display = this.display + digit;
+          }
         },
 
         // ==========================================
@@ -105,7 +114,15 @@
         //  5. this.waitingForSecond = true
         // ==========================================
         setOperator(op) {
-          // ... seu código aqui
+          if (this.display === 'Erro') return;
+
+          if (this.operator !== null && !this.waitingForSecond) {
+            this.calculate;
+          }
+
+          this.firstOperand = parseFloat(this.display);
+          this.operator = op;
+          this.waitingForSecond = true;
         },
 
         // ==========================================
@@ -128,7 +145,35 @@
         //  8. this.waitingForSecond = true
         // ==========================================
         calculate() {
-          // ... seu código aqui
+          if (this.operator === null || this.firstOperand === null){
+            return;
+          }
+
+          const a = this.firstOperand;
+          const b = parseFloat(this.display);
+          let resultado;
+
+          switch (this.operator) {
+            case '+':
+              resultado = a + b;
+              break;
+            
+            case '-':
+              resultado = a - b;
+              break;
+            
+            case '*':
+              resultado = a * b;
+              break;
+
+            case '/':
+              resultado = b === 0 ? 'Erro' : a / b;
+              break;
+          }
+          this.display = String(resultado)
+          this.firstOperand = null
+          this.operator = null
+          this.waitingForSecond = true
         }
 
       }
@@ -136,4 +181,5 @@
     }).mount('#app')
   </script>
 </body>
+
 </html>
