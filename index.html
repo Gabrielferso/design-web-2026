@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,103 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body class="min-h-screen bg-base-200 flex items-center justify-center p-6">
 
-  
+  <div id="app" class="card bg-base-100 shadow-2xl w-full max-w-md">
+    <div class="card-body">
+
+      <h1 class="card-title justify-center text-2xl mb-2">Inscrição em oficina</h1>
+
+      <!-- Formulário de inscrição -->
+      <form class="space-y-4" v-if="!confirmado" @submit.prevent="confirmarInscricao">
+
+        <!-- v-model - ligar input ao estado -->
+        <div>
+          <label for="nome" class="block font-semibold mb-1">Nome</label>
+          <input id="nome" type="text" class="input w-full" v-model="nome" @blur="validarCampos" :class="{'input-error': erroNome}">
+          <p id="erro-nome" v-if="erroNome" class="text-error text-sm-mt-1">informe seu nome</p>
+        </div>
+
+        <div>
+          <label for="email" class="block font-semibold mb-1">Email</label>
+          <input id="email" type="email" class="input w-full" v-model="email" @blur="validarCampos" :class="{'input-error': erroEmail}">
+          <p id="erro-email" v-if="erroEmail" class="text-error text-sm-mt-1">informe um e-mail válido</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">Confirmar inscrição</button>
+      </form>
+
+      <!-- área de resultado -->
+      <div v-else class="space-y-4">
+        <div class="alert alert-success">Inscrição confirmada!</div>
+        <div class="bg-base-200 rounded-box p-4 space-y-2">
+          <p><strong>Nome:</strong> {{ nome }}</p>
+          <p class="break-words"><strong>Email:</strong> {{ email }}</p>
+        </div>
+        <button type="button" @click="editarInscricao" class="btn btn-outline w-full">Editar</button>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    Vue.createApp({
+
+      data() {
+        return {
+          nome: '',
+          email: '',
+          erroNome: false,
+          erroEmail: false,
+          confirmado: false // formulário
+        }
+      },
+
+      // funções de métodos para nosso app
+      methods: {
+
+
+        limparErros() {
+          // serve para remover mensagens de erro
+          this.erroNome = false;
+          this.erroEmail = false;
+        },
+
+        // verifica se os campos estão corretos e tipos válidos
+        validarCampos() {
+          // verifica se os erros estão limpos
+          this.limparErros();
+
+          if (this.nome.trim() === '') {
+            this.erroNome = true;
+          }
+
+          // valida o email
+          if (this.email.trim() === '' || !this.email.includs('@')){
+            this.erroEmail = true;
+          }
+          // retornou
+          return !this.erroNome && !this.erroEmail;
+        },
+
+        // valida a inscrição
+        confirmarInscricao() {
+
+          // se retornar false interrompe a inscrição
+          if(this.validarCampos()){
+            return;
+          }
+        },
+
+        editarInscricao() {
+          this.confirmado = false
+          this.limparErros();
+        }
+      }
+
+    }).mount("#app");
+  </script>
+
 </body>
+
 </html>
