@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora Vue — Aula 01</title>
+  <title>Formulário de Inscrição Vue — Aulas 43 e 44</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -12,128 +12,5 @@
 <body class="min-h-screen bg-base-200 flex items-center justify-center p-6">
 
   
-  <div id="app" class="card bg-base-100 shadow-2xl w-full max-w-md">
-    <div class="card-body">
-
-      <h1 class="card-title justify-center text-2xl mb-2">Calculadora Vue</h1>
-
-      <!-- VISOR — {{ display }} mostra o estado reativo -->
-      <div class="bg-base-300 rounded-box p-4 mb-4 min-h-16 flex items-center justify-end">
-        <div class="text-3xl font-mono font-bold break-all">{{ display }}</div>
-      </div>
-
-      <!-- BOTÕES — cada um dispara um método via @click -->
-      <div class="grid grid-cols-4 gap-2">
-
-        <button class="btn btn-ghost text-xl" @click="appendDigit('7')">7</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('8')">8</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('9')">9</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('/')">÷</button>
-
-        <button class="btn btn-ghost text-xl" @click="appendDigit('4')">4</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('5')">5</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('6')">6</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('*')">×</button>
-
-        <button class="btn btn-ghost text-xl" @click="appendDigit('1')">1</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('2')">2</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('3')">3</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('-')">−</button>
-
-        <button class="btn btn-error text-xl" @click="clear">C</button>
-        <button class="btn btn-ghost text-xl" @click="appendDigit('0')">0</button>
-        <button class="btn btn-accent text-xl" @click="calculate">=</button>
-        <button class="btn btn-primary text-xl" @click="setOperator('+')">+</button>
-
-      </div>
-    </div>
-  </div>
-
-  <script>
-    Vue.createApp({
-
-      data() {
-        return {
-          display: '0',            // aparece no visor
-          firstOperand: null,      // primeiro número da operação
-          operator: null,          // '+', '-', '*' ou '/'
-          waitingForSecond: false  // true = o próximo dígito substitui o visor
-        }
-      },
-
-      // ==========================================
-      // as ações da calculadora
-      // ==========================================
-      methods: {
-
-        // EXEMPLO JÁ PRONTO — use como referência
-        // Reseta a calculadora ao estado inicial.
-        clear() {
-          this.display = '0';
-          this.firstOperand = null;
-          this.operator = null;
-          this.waitingForSecond = false;
-        },
-
-        // ==========================================
-        // TODO 1 — appendDigit(digit)
-        // Digita um dígito no visor.
-        //
-        // Regras:
-        //  1. Se this.waitingForSecond for true:
-        //        this.display = digit
-        //        this.waitingForSecond = false
-        //  2. Senão, se this.display === '0':
-        //        this.display = digit
-        //  3. Senão:
-        //        this.display = this.display + digit
-        // ==========================================
-        appendDigit(digit) {
-          // ... seu código aqui
-        },
-
-        // ==========================================
-        // TODO 2 — setOperator(op)
-        // Registra o operador pendente.
-        //
-        // Regras:
-        //  1. Se this.display === 'Erro': return (saia)
-        //  2. Se this.operator !== null E !this.waitingForSecond:
-        //        this.calculate()
-        //  3. this.firstOperand = parseFloat(this.display)
-        //  4. this.operator = op
-        //  5. this.waitingForSecond = true
-        // ==========================================
-        setOperator(op) {
-          // ... seu código aqui
-        },
-
-        // ==========================================
-        // TODO 3 — calculate()
-        // Executa a operação pendente.
-        //
-        // Regras:
-        //  1. Se this.operator === null OU this.firstOperand === null:
-        //        return
-        //  2. const a = this.firstOperand
-        //  3. const b = parseFloat(this.display)
-        //  4. Aplique o operador (use if/else ou switch):
-        //        '+' → a + b
-        //        '-' → a - b
-        //        '*' → a * b
-        //        '/' → b === 0 ? 'Erro' : a / b
-        //  5. this.display = String(resultado)
-        //  6. this.firstOperand = null
-        //  7. this.operator = null
-        //  8. this.waitingForSecond = true
-        // ==========================================
-        calculate() {
-          // ... seu código aqui
-        }
-
-      }
-
-    }).mount('#app')
-  </script>
 </body>
 </html>
