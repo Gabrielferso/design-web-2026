@@ -1,113 +1,129 @@
-# Calculadora Vue.js — Aula 01
+# Catálogo de Oficinas Vue.js
 
-Atividade prática da primeira aula de Vue.js.
+Atividade prática da terceira semana de Vue.js.
+
 ## Objetivo
 
-Construir uma calculadora com as **quatro operações** (`+`, `−`, `×`, `÷`) usando **apenas Vue.js** via CDN.
+Construir um **catálogo dinâmico de oficinas** usando **apenas Vue.js** via CDN. O usuário poderá adicionar oficinas, marcar favoritas, excluir itens e filtrar a lista.
 
-**Toda a estrutura visual e html com Vue já estão prontos.** Você só precisa implementar ** os 3 métodos** que fazem a funcionalidade da calculadora.
+Nesta atividade, você vai trabalhar com **listas** (`v-for`), **identificação de itens** (`:key`), **eventos** (`@click` e `@submit.prevent`), **classes dinâmicas** (`:class`), **arrays**, **métodos** e uma propriedade **computada** (`computed`).
 
+**Toda a estrutura visual e o HTML com Vue já estão prontos.** Você só precisa implementar **3 métodos e 1 propriedade computada** para completar as funcionalidades do catálogo.
 
 **Já está pronto:**
 
-- Todo o HTML (a `<div id="app">`, os botões, o visor)
+- Todo o HTML (campo para nova oficina, botões, filtros e lista)
 - Todo o visual em Tailwind CSS + DaisyUI
-- Os botões já estão conectados aos métodos via `@click`
+- O `v-model` que liga o campo de texto ao estado
+- Os eventos: `@submit.prevent` para adicionar, `@click` para favoritar e excluir
+- O `v-for` que monta a lista e o `:key` que identifica cada oficina
+- As condições `v-if`/`v-else` do estado vazio e do aviso **Favorita**
+- O `:class` que destaca os filtros e altera o botão **Favoritar**
 - A estrutura `Vue.createApp({...}).mount('#app')`
-- O `data()` com os 4 campos do estado
-- O método `clear()` completo como exemplo
+- O `data()` com três oficinas iniciais e os demais dados necessários
+- O método `limparCampo()` completo como exemplo
+- O `computed` com um retorno provisório para a lista aparecer antes do TODO 4
 
 **Falta fazer:**
 
-3 métodos dentro do `<script>`:
+3 métodos e 1 propriedade computada dentro do `<script>`:
 
-| TODO | Método | Funcionalidade |
-|---|---|---|
-| **TODO 1** | `appendDigit(digit)` | Digita um número no visor |
-| **TODO 2** | `setOperator(op)` | Registra o operador pendente |
-| **TODO 3** | `calculate()` | Executa a conta |
+| TODO       | Método / computed                 | Funcionalidade                         |
+| ---------- | --------------------------------- | -------------------------------------- |
+| **TODO 1** | `adicionarOficina()`              | Adiciona uma oficina ao array          |
+| **TODO 2** | `alternarFavorito(id)`            | Marca ou desmarca uma oficina favorita |
+| **TODO 3** | `removerOficina(id)`              | Exclui a oficina selecionada           |
+| **TODO 4** | `oficinasVisiveis()` (`computed`) | Mostra todas ou apenas as favoritas    |
 
-Abra o `index.html` e siga os comentários `TODO` em cada método.
+Abra o `index.html` e siga os comentários `TODO` dentro do `<script>`. **Não modifique o HTML nem o `data()`**: trabalhe somente nos TODOs indicados.
 
-### TODO 1 — `appendDigit(digit)`
+### TODO 1 — `adicionarOficina()`
 
-Recebe um dígito (`'0'` a `'9'`) e atualiza o visor.
+Recebe o texto digitado em `novaOficina` e adiciona um novo objeto à lista `oficinas`.
 
 **Regras:**
-1. Se `waitingForSecond` for `true`: **substitui** `this.display` pelo dígito e marca `waitingForSecond = false`.
-2. Senão, se `this.display === '0'`: **substitui** pelo dígito (para nao concatenar).
-3. Senão: **concatena** — `this.display = this.display + digit`.
+1. Crie `const titulo = this.novaOficina.trim()`.
+2. Se `titulo === ''`, use `return` (não adicione oficina vazia).
+3. Use `this.oficinas.push(...)` para adicionar um objeto com `id: this.proximoId`, `titulo: titulo` e `favorita: false`.
+4. Aumente `this.proximoId` em 1 para que a próxima oficina tenha outro identificador.
+5. Chame `this.limparCampo()`.
 
 **Exemplos:**
-- `display='0'`, `digit='5'` → `display='5'`
-- `display='12'`, `digit='3'` → `display='123'`
-- `display='12'`, `waitingForSecond=true`, `digit='7'` → `display='7'`
+- Digitar `Robótica` e clicar em **Adicionar**, aparece mais uma oficina.
+- Tentar adicionar um campo vazio, a lista não deve mudar.
 
-### TODO 2 — `setOperator(op)`
+**Após concluir, faça um commit (sem push):**
 
-Recebe um operador (`'+'`, `'-'`, `'*'`, `'/'`) e o registra para a próxima conta.
+```bash
+git add index.html
+git commit -m "feat: adiciona oficinas a lista"
+```
 
-**Regras:**
-1. Se `this.display === 'Erro'`: **saia** (`return`) sem fazer nada.
-2. Se `this.operator !== null` **e** `this.waitingForSecond === false`: chame `this.calculate()` primeiro (para encadear `5 + 3 ×`).
-3. `this.firstOperand = parseFloat(this.display)`
-4. `this.operator = op`
-5. `this.waitingForSecond = true`
+### TODO 2 — `alternarFavorito(id)`
 
-### TODO 3 — `calculate()`
-
-Executa a operação pendente e mostra o resultado.
+Deve ser chamado quando o usuário clicar no botão **Favoritar**, de uma oficina.
 
 **Regras:**
-1. Se `this.operator === null` **ou** `this.firstOperand === null`: **retorne** (nada a fazer).
-2. `const a = this.firstOperand`
-3. `const b = parseFloat(this.display)`
-4. Aplique o operador:
-   - `'+'` → `a + b`
-   - `'-'` → `a - b`
-   - `'*'` → `a * b`
-   - `'/'` → se `b === 0` → `'Erro'`; senão `a / b`
-5. `this.display = String(resultado)`
-6. `this.firstOperand = null`
-7. `this.operator = null`
-8. `this.waitingForSecond = true`
+1. Procure a oficina com `this.oficinas.find(item => item.id === id)` e guarde o resultado em uma variável `oficina`.
+2. Se a oficina não existir, use `return`.
+3. Inverta o valor de `oficina.favorita` usando `!`.
+4. Observe o texto do botão, a classe visual e o aviso **Favorita**: o HTML já reage à mudança de estado.
 
-### Referência: o `clear()` já está pronto
+
+**Após concluir, faça um commit (sem push):**
+
+```bash
+git add index.html
+git commit -m "feat: alterna oficinas favoritas"
+```
+
+### TODO 3 — `removerOficina(id)`
+
+É chamado ao clicar em **Excluir** no item correspondente.
+
+**Regras:**
+1. Use `this.oficinas.filter(...)` para produzir um array apenas com itens cujo `item.id !== id`.
+2. Atribua esse novo array a `this.oficinas`.
+3. Observe a atualização da lista sem manipular o HTML manualmente.
+
+
+**Após concluir e testar, faça um commit (sem push):**
+
+```bash
+git add index.html
+git commit -m "feat(aula-46): remove oficina pelo id"
+```
+
+### TODO 4 — `oficinasVisiveis()` (`computed`)
+
+É uma propriedade computada: produz uma lista a partir de `oficinas` e do filtro atual. O HTML já utiliza `oficinasVisiveis` no `v-for` e no contador.
+
+**Regras:**
+1. Dentro de `computed`, localize `oficinasVisiveis()`.
+2. **Substitua** o retorno provisório `return this.oficinas;` por uma condição `if`.
+3. Se `this.filtro === 'favoritas'`, retorne `this.oficinas.filter(oficina => oficina.favorita)`.
+4. Caso contrário, retorne `this.oficinas`.
+
+**Após concluir, faça um commit (sem push):**
+
+```bash
+git add index.html
+git commit -m "feat(aula-46): filtra oficinas favoritas"
+```
+
+### Referência: o `limparCampo()` já está pronto
 
 Use como exemplo de como acessar o estado com `this`:
 
 ```js
-clear() {
-  this.display = '0';
-  this.firstOperand = null;
-  this.operator = null;
-  this.waitingForSecond = false;
+limparCampo() {
+  this.novaOficina = '';
 }
 ```
-
-## Como testar
-
-| Cliques | Visor deve mostrar |
-|---|---|
-| `7` `+` `5` `=` | `12` |
-| `9` `×` `8` `=` | `72` |
-| `1` `0` `÷` `4` `=` | `2.5` |
-| `8` `−` `3` `=` | `5` |
-| `5` `÷` `0` `=` | `Erro` |
-| `7` `+` `3` `=` `×` `2` `=` | `20` |
-| `7` `+` `3` `×` `2` `=` | `20` |
-| `C` | `0` |
-| `5` `÷` `0` `=` `7` `+` `1` `=` | `8` (recupera do `Erro`) |
-
 
 
 ## Entrega no GSA
 
-```bash
-git checkout -b aula-01-calculadora
-git add .
-git commit -m "Aula 01 — Calculadora Vue"
-git push -u origin aula-01-calculadora
-```
+Crie uma branch para a atividade. **Após cada TODO concluído e testado, faça o commit local correspondente**. Não precisa dar `push` a cada TODO. Faça um único `push` ao finalizar.
 
-No GitHub, abra a aba **Branches**, encontre `aula-01-calculadora` e **copie a URL** da branch (algo como `https://github.com/<usuario>/<repo>/tree/aula-01-calculadora`). Cole esse link no GSA.
+
