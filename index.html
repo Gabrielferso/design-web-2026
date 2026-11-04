@@ -1,176 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Oficinas Vue</title>
-
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario de Inscrição Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
-<body class="min-h-screen bg-base-200 flex items-center justify-center p-4 sm:p-6">
+<body class="min-h-screen bg-base-200 flex items-center justify-center p-6">
+    
+  <div id="app" class="card bg-base-100 shadow-xl w-full max-w-md">
+        <div class="card-body">
+            <!-- título da página -->
+            <h1 class="card-title justify-center text-2xl mb-2">
+                Inscrição em oficina
+            </h1>
+            <!-- Formulário de inscrição -->
+            <form class="space-y-4" v-if="!confirmado" @submit.prevent="confirmarInscricao">
 
-  <div id="app" class="card bg-base-100 shadow-xl w-full max-w-xl">
-    <div class="card-body gap-5">
+                <!-- v-model: ligar input ao estado -->
+                <div>
+                    <label for="nome" class="block font-semibold mb-1">Nome</label>
+                    <input id="nome" type="text" class="input w-full" v-model="nome" @blur="validarCampos" :class="{'input-error': erroNome}">
+                    <p id="erro-nome" v-if="erroNome" class="text-error text-sm mt-1">Informe seu nome</p>
+                </div>
+                
+                <div>
+                    <label for="email" class="block font-semibold mb-1">E-mail</label>
+                    <input type="text" id="email" class="input w-full" v-model="email" @blur="validarCampos" :class="{'input-error': erroEmail}">
+                    <p id="erro-email" v-if="erroEmail" class="text-error text-sm mt-1">Informe um e-mail válido</p>
+                </div>
 
-      <h1 class="card-title justify-center text-2xl">Catálogo de oficinas</h1>
+                <button type="submit" class="btn btn-primary w-full">Confirmar inscrição</button>
+            </form>
 
-      <form @submit.prevent="adicionarOficina" class="flex flex-col sm:flex-row gap-2">
-        <label for="nova-oficina" class="sr-only">Nome da oficina</label>
-        <input id="nova-oficina" type="text" v-model="novaOficina" placeholder="Nome da nova oficina"
-          class="input input-bordered w-full" autocomplete="off">
-        <button type="submit" class="btn btn-primary">Adicionar</button>
-      </form>
+            <!-- área de resultado -->    
+              <div v-else class="space-y-4">
+                  <div class="alert alert-success">Inscrição confirmada!</div>
+                  <div class="bg-base-200 rounded-box p-4 space-y-2">
+                      <p><strong>Nome:</strong> {{ nome }}</p>
+                      <p class="break-words"><strong>E-mail:</strong> {{ email }}</p>
+                  </div>
+                  <button class="btn btn-outline w-full" @click="editarInscricao">Editar</button>
+              </div>
+      </div>
+  </div>
 
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div class="join" aria-label="Filtros de oficinas">
-          <button type="button" class="btn join-item btn-sm" :class="filtro === 'todas' ? 'btn-primary' : 'btn-outline'"
-            :aria-pressed="filtro === 'todas'" @click="filtro = 'todas'">Todas</button>
-          <button type="button" class="btn join-item btn-sm"
-            :class="filtro === 'favoritas' ? 'btn-primary' : 'btn-outline'" :aria-pressed="filtro === 'favoritas'"
-            @click="filtro = 'favoritas'">Favoritas</button>
-        </div>
-        <p class="text-sm text-base-content/70">
-          Exibindo: <strong>{{ oficinasVisiveis.length }}</strong>
-        </p>
-      </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    nome: '',
+                    email: '',
+                    erroNome: false,
+                    erroEmail: false,
+                    confirmado: false // formulario
+                }
+            },
+          // funçoes de metodos para nosso app
+            methods: {
+                // serve para remover mensagens de erro 
+                limparErros(){
+                    this.erroNome = false;
+                    this.erroEmail = false;
+                },
+                // verifica se os campos estão crretos e tipos validos
+                validarCampos(){
+                   // verifica se os erros estão limpos
+                    this.limparErros();
 
-      <p v-if="oficinasVisiveis.length === 0" class="bg-base-200 rounded-box p-5 text-center text-base-content/70"
-        role="status">
-        Nenhuma oficina encontrada.
-      </p>
+                    //valida nome
+                    if(this.nome.trim() === ''){
+                        this.erroNome = true;
+                    }
+                    //valida o email
+                    if(this.email.trim() === '' || !this.email.includes('@')){
+                    this.erroEmail = true;
+                    }
 
-      <ul v-else class="space-y-2">
-        <li v-for="oficina in oficinasVisiveis" :key="oficina.id"
-          class="border border-base-300 rounded-box p-3 flex flex-col sm:flex-row sm:items-center gap-3">
-          <div class="flex-1 min-w-0">
-            <p class="font-semibold break-words">{{ oficina.titulo }}</p>
-            <span v-if="oficina.favorita" class="badge badge-warning badge-sm mt-1">Favorita</span>
-          </div>
-          <div class="flex gap-2">
-            <button type="button" class="btn btn-sm flex-1 sm:flex-none"
-              :class="oficina.favorita ? 'btn-warning' : 'btn-outline'"
-              :aria-label="(oficina.favorita ? 'Desfavoritar ' : 'Favoritar ') + oficina.titulo"
-              @click="alternarFavorito(oficina.id)">
-              {{ oficina.favorita ? '★ Favorita' : '☆ Favoritar' }}
-            </button>
-            <button type="button" class="btn btn-error btn-outline btn-sm" :aria-label="'Excluir ' + oficina.titulo"
-              @click="removerOficina(oficina.id)">Excluir</button>
-          </div>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-
-  <script>
-    Vue.createApp({
-
-      data() {
-        return {
-          novaOficina: '',       // texto digitado no formulário
-          proximoId: 4,         // ID da próxima oficina adicionada
-          filtro: 'todas',       // 'todas' ou 'favoritas'
-          oficinas: [           // lista de objetos exibida por v-for
-            { id: 1, titulo: 'Fotografia digital', favorita: false },
-            { id: 2, titulo: 'Introdução ao Figma', favorita: true },
-            { id: 3, titulo: 'Produção de podcasts', favorita: false }
-          ]
-        }
-      },
-
-      // ==========================================
-      // dados calculados automaticamente
-      // ==========================================
-      computed: {
-
-        // ==========================================
-        // TODO 4 — oficinasVisiveis()  
-        // Seleciona quais oficinas serão mostradas.
-        // É usado no v-for e no contador da página.
-        //
-        // Regras:
-        //  1. Se this.filtro === 'favoritas':
-        //       retorne somente as oficinas em que
-        //       oficina.favorita for true (use .filter())
-        //  2. Caso contrário: retorne this.oficinas
-        //
-        // O retorno abaixo é provisório: mantém a
-        // lista funcionando antes do TODO 4.
-        // Substitua este retorno ao fazer a tarefa.
-        // ==========================================
-        oficinasVisiveis() {
-          return this.oficinas;
-        }
-      },
-
-      // ==========================================
-      // as ações do catálogo
-      // ==========================================
-      methods: {
-
-        // EXEMPLO JÁ PRONTO — use como referência
-        // Limpa o campo de texto após o cadastro.
-        limparCampo() {
-          this.novaOficina = '';
-        },
-
-        // ==========================================
-        // TODO 1 — adicionarOficina()  
-        // Inclui uma oficina na lista.
-        //
-        // Regras:
-        //  1. Crie const titulo = this.novaOficina.trim()
-        //  2. Se titulo === '': return (saia)
-        //  3. Use this.oficinas.push(...) para incluir:
-        //       id: this.proximoId
-        //       titulo: titulo
-        //       favorita: false
-        //  4. Aumente this.proximoId em 1
-        //  5. Chame this.limparCampo()
-        // ==========================================
-        adicionarOficina() {
-          // ... seu código aqui
-        },
-
-        // ==========================================
-        // TODO 2 — alternarFavorito(id)  
-        // Marca ou desmarca uma oficina como favorita.
-        //
-        // Regras:
-        //  1. Procure a oficina pelo id:
-        //       const oficina = this.oficinas.find(
-        //         item => item.id === id
-        //       )
-        //  2. Se não encontrou (if (!oficina)): return
-        //  3. Inverta o valor:
-        //       oficina.favorita = !oficina.favorita
-        // ==========================================
-        alternarFavorito(id) {
-          // ... seu código aqui
-        },
-
-        // ==========================================
-        // TODO 3 — removerOficina(id)  
-        // Exclui a oficina que recebeu o clique.
-        //
-        // Regras:
-        //  1. Use this.oficinas.filter(...) para
-        //     criar uma lista sem a oficina cujo
-        //     item.id for igual ao id recebido
-        //  2. Guarde a nova lista em this.oficinas
-        //  3. Observe como v-for atualiza a interface
-        // ==========================================
-        removerOficina(id) {
-          // ... seu código aqui
-        }
-      }
-
-    }).mount('#app')
-  </script>
+                    //retorna erros
+                    return !this.erroNome && !this.erroEmail;
+                },
+                // só confirma se os campos forem válidos
+                confirmarInscricao(){
+                    if (this.validarCampos()) {
+                        this.confirmado = true;
+                    }
+                },
+                // volta para o formulário mantendo o que foi digitado
+                editarInscricao(){
+                    this.limparErros();
+                    this.confirmado = false;
+                }
+            }
+        }).mount("#app");
+    </script>
 </body>
-
 </html>
